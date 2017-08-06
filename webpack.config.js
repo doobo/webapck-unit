@@ -7,7 +7,8 @@ module.exports = {
     },
     output: {
         path: __dirname + "/dist",//打包后的文件存放的地方
-        filename: "[name]/bundle.js"//打包后输出文件的文件名
+        filename: "[name]/bundle.js",//打包后输出文件的文件名
+        //publicPath : '/webpack-unit/'
     },
     module: {
         loaders: [
@@ -18,15 +19,15 @@ module.exports = {
             },
             {test: /\.css$/, loader:  ExtractTextPlugin.extract("css-loader")},
             {test: /\.scss$/, loaders: ['style', 'css', 'sass']},
-            {test: /\.(png|jpe?g|ico|bmp|gif)$/, loader: 'file-loader?&limit=1000name=/img/[name].[ext]?[hash]'},
+            {test: /\.(png|jpe?g|ico|bmp|gif)$/, loader: 'url-loader?limit=8096&name=./images/[name][hash:8].[ext]'},
             {
                 test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: 'file-loader?limit=1000&mimetype=application/font-woff&name=./../font/[name].[ext]'
+                loader: 'url-loader?limit=8906&mimetype=application/font-woff&name=./font/[name].[ext]'
             },
-            {test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/, loader: 'file-loader?name=./../font/[name].[ext]'},
+            {test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/, loader: 'url-loader?name=./font/[name].[ext]'},
         ]
     },
     plugins:  [
-        new ExtractTextPlugin("/css/[name]style.css"),
+        new ExtractTextPlugin("[name]_style.css"),
     ]
 }

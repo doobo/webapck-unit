@@ -1,3 +1,3 @@
-import 'font-awesome/css/font-awesome.css';
+import '../css/index.css';
 var greeter = require('./greeter');
 document.getElementById('root').appendChild(greeter());
