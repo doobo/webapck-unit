@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Angular JS And Webpack</title>
-    <link rel="stylesheet" href="../dist/angular_style.css">
-    <script src="../dist/angular/bundle.js"></script>
+    <link rel="stylesheet" href="../dist/angular.min.css">
+    <script src="../dist/angular.min.js"></script>
+    <script src="../dist/angular/angular.bundle.js"></script>
 </head>
 <body ng-app="home">
     <div ng-controller="indexController">
@@ -30,8 +31,11 @@
     <button type="button" class="btn btn-default btn-sm">
         <span class="glyphicon glyphicon-user"></span> User
     </button>
-    <button type="button" class="btn btn-default btn-xs">
-        <span class="glyphicon glyphicon-user"></span> User
+    <button type="button" class="btn btn-default btn-xs" id="btn_test">
+        <span class="fa fa-plus"></span> User
     </button>
 </body>
+<script>
+    console.log(angular.isArray([1,2,3]));
+</script>
 </html>
